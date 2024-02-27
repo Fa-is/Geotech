@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoServer WMS Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 600px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script>
+    var map = L.map('map').setView([13.7375, 100.5239], 10);
+
+    L.tileLayer.wms('http://localhost:8080/geoserver/SM/wms?', {
+        layers: 'SM:Maemoh_MineArea_Jan67_UTM',
+        format: 'image/png',
+        transparent: true
+    }).addTo(map);
+</script>
+
+</body>
+</html>
