@@ -1,1 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoServer Web Map</title>
+    <style>
+        /* CSS styling here */
+        #map {
+            width: 100%;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+    <h1>GeoServer Web Map</h1>
+    <div id="map"></div>
+
+    <!-- JavaScript สำหรับเรียกใช้งาน Leaflet.js เพื่อแสดงแผนที่ -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // JavaScript สำหรับสร้างแผนที่และเรียกใช้งาน WMS service จาก GeoServer
+        var map = L.map('map').setView([18.796, 98.962], 12); // ตำแหน่งศูนย์กลางแผนที่และระดับการซูม
+
+        L.tileLayer('http://localhost:8080/geoserver/ows?', {
+            layers: 'your_workspace:your_layer_name', // แทนที่ your_workspace และ your_layer_name ด้วยชื่อ workspace และชื่อเลเยอร์ของคุณ
+            format: 'image/png',
+            transparent: true,
+            attribution: 'Your attribution here'
+        }).addTo(map);
+    </script>
+</body>
+</html>
 
