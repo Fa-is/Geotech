@@ -22,7 +22,7 @@
         // JavaScript สำหรับสร้างแผนที่และเรียกใช้งาน WMS service จาก GeoServer
         var map = L.map('map').setView([18.796, 98.962], 12); // ตำแหน่งศูนย์กลางแผนที่และระดับการซูม
 
-        L.tileLayer('http://10.249.146.150:8080/geoserver/ows?', {
+        L.tileLayer('https://10.249.146.150:8080/geoserver/ows?', {
             layers: 'SM:Maemoh_MineArea_Jan67_UTM', // แทนที่ your_workspace และ your_layer_name ด้วยชื่อ workspace และชื่อเลเยอร์ของคุณ
             format: 'image/png',
             transparent: true,
